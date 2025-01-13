@@ -100,7 +100,7 @@ public class Index{
         // System.out.println(sum);
         // System.out.println(sum == 5050 ? "测试通过" : "测试失败");
 
-        
+
         /* 
          整数总结：
          可以强制转型，强制转型如果超出范围就会得到错误结果;
