@@ -1,3 +1,5 @@
+
+
 public class Boolean {
     public static void main(String[] args){
     // 对于布尔类型，永远只有ture（真）和false（假）两个值
@@ -46,6 +48,17 @@ public class Boolean {
 
     // 三元运算符
     // Java还提供一个三元运算符b ? x : y，它根据第一个布尔表达式的结果，分别返回后续两个表达式之一的计算结果
+    // int num = -10;
+    // String result = num > 1 ? "yes" : "no";
+    // System.out.println(result);  // 输出：no
+    // b ? x : y会首先计算b，如果b为true，则只计算x，否则，只计算y。此外，x和y的类型必须相同，因为返回值不是boolean，而是x和y之一。
 
+
+    // 判断指定年龄是否是小学生，判断年龄为：（6~12）岁
+        // int age = 7; 
+        // boolean isPrimaryStudent = age >= 6 && age <= 12; 
+        // String panduan = isPrimaryStudent ? "yse" : "no";
+        // System.out.println(panduan); 
+        // boolean isPrimaryStudent = 12; 
     }       
 }
