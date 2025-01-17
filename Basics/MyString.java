@@ -118,9 +118,11 @@ public class MyString {
         // int a = 72;
         // int b = 105;
         // int c = 65281;
-        // // String s = "" + a + b + c;
-        // String s = "" + (char)a + (char)b + (char)c;
-        // System.out.println(s);
+        // 先用 ""（空字符串）将第一个字符拼接成字符串。
+        // 然后再依次拼接其他字符，形成完整的字符串。
+        // String s = "" + (char)a + (char)b + (char)c; // 强制类型转换 将 int 类型的 a b c 转换为其对应的 Unicode 字符。
+
+        // System.out.println(s); 输出为：Hi！。
         
 
 
