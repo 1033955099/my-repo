@@ -67,11 +67,11 @@ public class Array{
          *
          */
 
-        String[] names = {"ABC", "XYZ", "zoo"};
-        String s = names[1]; // 将 names[1] 的值赋给 s ， s 只是复制了 names[1] 中存储的字符串 "XYZ" 的值，而 names[1] 仍然指向 "XYZ" 这个字符串对象。
-        names[1] = "cat"; // names[1] 的值发生了改变，指向 "cat"，但 s 仍然保持指向最初赋给它的 "XYZ"。
+        // String[] names = {"ABC", "XYZ", "zoo"};
+        // String s = names[1]; // 将 names[1] 的值赋给 s ， s 只是复制了 names[1] 中存储的字符串 "XYZ" 的值，而 names[1] 仍然指向 "XYZ" 这个字符串对象。
+        // names[1] = "cat"; // names[1] 的值发生了改变，指向 "cat"，但 s 仍然保持指向最初赋给它的 "XYZ"。
         // 字符串是不可变的对象，因此 names[1] 被修改后，并不会影响 s，因为 s 是一个 副本。
-        System.out.println(s); // s是"XYZ"还是"cat"?
+        // System.out.println(s); // s是"XYZ"还是"cat"?
         // 由于 s 在 names[1] 被修改之前就已经保存了 "XYZ"，所以打印 s 时它仍然是 "XYZ"，而 不受 names[1] 修改的影响。
         //  s 的结果是 XYZ 
 
