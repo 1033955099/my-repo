@@ -77,15 +77,22 @@ public class Enter{
 
         //  请帮小明同学设计一个程序，输入上次考试成绩（int）和本次考试成绩（int），然后输出成绩提高的百分比，保留两位小数位（例如，21.75%）。
 
-        Scanner xiao = new Scanner(System.in);
-        System.out.printf("输入上次考试成绩：");
-        int cj = xiao.nextInt();
-        Scanner ming = new Scanner(System.in);
-        System.out.printf("输入这次考试成绩：");
-        int cj2 = ming.nextInt();
 
-        double a = (cj / cj2)*100;
+        Scanner man = new Scanner(System.in); // 创建扫描对象 Scanner
+        System.out.print("请输入上次成绩"); //创建上次成绩的输入
+        double a = man.nextDouble(); // 创建扫描对象的方法，nextDouble是读取用户输入的数值，然后作为返回值
+        System.out.print("请输入本次成绩");
+        double b = man.nextDouble();
 
-
+        if(a==b){ // 如果a等于b那么就执行输出"你的成绩没有提升"
+            System.out.println("你的成绩没有提升");
+        }else if (b<a) { // 如果本次成绩小于上次成绩，那么计算成绩下降的百分比，并输出下降的百分比
+            double x =(double)(a-b)/a;
+            System.out.printf("你的成绩下降了%.2f%%",x*100 );
+        }else{ // 如果本次成绩大于上次成绩，那么计划成绩提升的百分比，并输出提升的百分比
+            double y =(double)(b-a)/b;
+            System.out.printf("你的成绩提升了%.2f",y*100);
+        }
+        
     }
 }
