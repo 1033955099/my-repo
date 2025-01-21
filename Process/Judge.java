@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 public class Judge {
     public static void main(String []args){
         // 在Java程序中，如果要根据条件来决定是否执行某一段代码，就需要 if 语句
@@ -74,8 +77,45 @@ public class Judge {
         // } else {
         //     System.out.println("s1 not equals s2");
         // }
+        // String a = "Hello"; // 比如把 a 内容里的首字母大写来区分a,b字符串的内容，则会输出 a not equals b
+        // String b = "HELLO".toLowerCase(); // 这个方法是大写转换小写
+        // System.out.println(a);
+        // System.out.println(b);
+        // if(a.equals(b)){
+        //     System.out.println("a equals b");
+        // }else{
+        //     System.out.println("a not equals b");
+        // }
         // 执行语句s1.equals(s2)时，如果变量s1为null，会报NullPointerException：
         // 要避免NullPointerException错误，可以利用短路运算符&&
+
+
+        /* 
+          过轻：低于18.5
+          正常：18.5 ~ 25
+          过重：25 ~ 28
+          肥胖：28 ~ 32
+          非常肥胖：高于32
+        */
+
+         Scanner x = new Scanner(System.in);
+         System.out.print("输入你的身高");
+         double a = x.nextDouble();
+         System.out.print("输入你的体重");
+         double b = x.nextDouble();
+         double c = b/(a*a);
+         System.out.printf("%.1f\n",c);
+         if(c<18.5){
+            System.out.printf("体重过轻");
+         }else if (c>=18.5 && c<=25){
+            System.out.printf("正常");
+         }else if (c>=25 && c<=28){
+            System.out.printf("过重");
+         }else if (c>=28 && c<=32){
+            System.out.printf("肥胖");
+         }else{
+            System.out.printf("过于肥胖，注意健康");
+         }
 
     }
 }
