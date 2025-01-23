@@ -26,7 +26,7 @@ public class DoWhile{
 		do {
             sum += m;
             m ++;
-		} while (m<=100);
+		} while (m<=n);
 		System.out.println(sum);
 
     }
