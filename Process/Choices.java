@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 public class Choices {
     public static void main(String []args){
         // 除了if语句，还有一种条件判断，是根据某个标的式的不同结果，分别去执行不同的分支
@@ -75,18 +78,62 @@ public class Choices {
         // }; // 赋值语句需要 ; 来结束
         // System.out.println("opt="+opt);
 
-        String fruit = "orange";
-        int opt = switch (fruit) {
-            case "apple" -> 1;
-            case "pear", "mango" -> 2;
-            default -> {
-                int code = fruit.hashCode(); // 哈西码
-                yield code; // switch语句返回值
-            }
-        };
-        System.out.println("opt = " + opt);
+        // String fruit = "orange";
+        // int opt = switch (fruit) {
+        //     case "apple" -> 1;
+        //     case "pear", "mango" -> 2;
+        //     default -> {
+        //         int code = fruit.hashCode(); // 哈西码
+        //         yield code; // switch语句返回值
+        //     }
+        // };
+        // System.out.println("opt = " + opt);
 
-   
 
+        // 剪刀石头布
+
+        System.out.println("please choice:");
+        System.out.println(" 1: Rock");
+        System.out.println(" 2: Scissors");
+        System.out.println(" 3: Paper");
+        // 用户输入:
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        choice = scanner.nextInt();
+        // 计算机随机数 1, 2, 3:
+        int random = (int) (Math.random() * 3+1);//1~3,如果不+1则为0,1,2
+        switch (choice) {
+            // TODO:
+            case   1:
+                if (random == 1){
+                    System.out.println("你的选择:Rock,电脑选择:Rock,结果：平手");
+                } else if (random == 2) {
+                    System.out.println("你的选择:Rock,电脑选择:Scissors,结果：你赢了");
+                } else if (random == 3) {
+                    System.out.println("你的选择:Rock,电脑选择:Paper,结果：你输了");
+                }
+                break;
+            case   2:
+                if (random == 1){
+                    System.out.println("你的选择:Scissors,电脑选择:Rock,结果：你输了");
+                } else if (random == 2) {
+                    System.out.println("你的选择:Scissors,电脑选择:Scissors,结果：平手");
+                } else if (random == 3) {
+                    System.out.println("你的选择:Scissors,电脑选择:Paper,结果：你赢了");
+                }
+                break;
+            case   3:
+                if (random == 1){
+                    System.out.println("你的选择:Paper,电脑选择:Rock,结果：你赢了");
+                } else if (random == 2) {
+                    System.out.println("你的选择:Paper,电脑选择:Scissors,结果：你输了");
+                } else if (random == 3) {
+                    System.out.println("你的选择:Paper,电脑选择:Paper,结果：平手");
+                }
+                break;
+        }
+
+        
     }
+
 }
