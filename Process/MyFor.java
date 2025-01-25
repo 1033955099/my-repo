@@ -34,11 +34,67 @@ public class MyFor {
         // 使用for循环时，千万不要在循环体内修改计数器！在循环体中修改计数器常常导致莫名其妙的逻辑错误。
 
         // 如果只想循环偶数那么将i+2就可以了
-        int[] ns = { 1, 4, 9, 16, 25 };
-        for (int i=0; i<ns.length; i=i+2) { // 使用for循环时，计数器变量i要尽量定义在for循环中
-        System.out.println(ns[i]);
+        // int[] ns = { 1, 4, 9, 16, 25 };
+        // for (int i=0; i<ns.length; i=i+2) { // 使用for循环时，计数器变量i要尽量定义在for循环中
+        // System.out.println(ns[i]);
+        // }
+
+
+        // for each 循环
+        // for 循环经常用来遍历数组，因为通过计数器可以根据索引来访问数组的某个元素
+        // int[] ns ={12,13,45,26,37};
+        // for(int i=0;i<ns.length;i++){
+        //     System.out.println(ns[i]);
+        // }
+        // 如果想要访问的是数组每个元素的值，java还提供了另一种 for each 循环，它可以更简单的遍历数组
+        // int[] ns ={9,12,34,54,76};
+        // for(int n:ns){
+        //     System.out.println(n);
+        // }
+        // 和for循环相比for each循环的变量n不再是计数器，而是直接对应到数组的每个元素
+        // for each 的循环也更简洁，但是 for each 无法指定遍历顺序，也无法获取数组的索引
+
+        // 除了数组外，for each 循环能够遍历所有可迭代的数据类型。
+
+
+        // 给定一个数组，请用for循环倒序输出每一个元素：
+        // int[] ns = {43,21,56,32,67};
+        // for(int i=0;i<ns.length;i++){
+        //     System.out.println(ns[i]);
+        // }
+
+
+        // 利用for each循环对数组每个元素求和：
+        // int sum =0;
+        // int[] ns ={10,20,30,15,50}; // 创建的数组
+        // for(int i:ns){ // for each 的 i 对应ns数组里的每个元素
+        //     // System.out.println(i);
+        //     sum += i; // 将ns数组里的元素累加到sum里
+        // }
+        // System.out.println(+sum); // 输出 则是ns数组内所有元素的累加值
+
+
+        // 圆周率π可以使用公式计算：
+        // 要利用 for 循环计算圆周率π，常见的一种方法是使用莱布尼茨公式
+
+        double pi = 0; // 初始pi的值
+        int ci = 1000 ;// 循环次数，循环次数越多越精准
+         // 使用for循环实现莱布尼茨公式
+         for (int i = 0; i < ci; i++) {
+            // 计算当前项
+            double term = 1.0 / (2 * i + 1);
+            if (i % 2 == 0) {
+                pi += term;  // 正项
+            } else {
+                pi -= term;  // 负项
+            }
         }
 
+        // 最终的π值是计算结果乘以4
+        pi *= 4;
+
+        // 输出结果
+        System.out.println("Calculated Pi: " + pi);
 
     }
 }
