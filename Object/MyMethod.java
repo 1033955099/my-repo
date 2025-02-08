@@ -1,4 +1,4 @@
-// // 先定义person类，MyMethod类需要使用它，所以首先要写它
+
 // class Person {
 //     private String name;
 //     private int age;
@@ -192,3 +192,126 @@
 //         // 可变参数可以无法保证传入null，因为传入0个参数时，接收到的实际值是一个空数组而不是null。
 //     }
 // }
+
+
+// 参数绑定
+// 调用把方法传递给实例方法时，调用时传递的值会按参数位置一一绑定。
+// 基本类型参数绑定
+// public class MyMethod {
+//     public static void main(String[] args) {
+//         Person p = new Person();
+//         int n = 15; // n的值为15
+//         p.setAge(n); // 传入n的值
+//         System.out.println(p.getAge()); // 15
+//         n = 20; // n的值改为20
+//         System.out.println(p.getAge()); // 15还是20?
+//     }
+// }
+
+// class Person {
+//     private int age;
+
+//     public int getAge() {
+//         return this.age;
+//     }
+
+//     public void setAge(int age) {
+//         this.age = age;
+//     }
+// }
+// 运行后得知，修改外部的局部变量n，不影响实例p的age字段，原因是setAge()方法获得的参数，复制了n的值，因此p.age和局部变量n互不影响
+
+// 引用类型参数绑定
+// public class MyMethod {
+//     public static void main(String[] args) {
+//         Person p = new Person();
+//         String[] fullname = new String[] { "Homer", "Simpson" };
+//         p.setName(fullname); // 传入fullname数组
+//         System.out.println(p.getName()); // "Homer Simpson"
+//         fullname[0] = "Bart"; // fullname数组的第一个元素修改为"Bart"
+//         System.out.println(p.getName()); // Bart Simpson
+//     }
+// }
+
+// class Person {
+//     private String[] name;
+
+//     public String getName() {
+//         return this.name[0] + " " + this.name[1];
+//     }
+
+//     public void setName(String[] name) {
+//         this.name = name;
+//     }
+// }
+// 引用类型参数的传递，调用方的变量，和接收方的参数变量，指向的是同一个对象。双方任意一方对这个对象的修改，都会影响对方(因为指的是同一对象)。
+// class person{
+//     private String name;
+
+//     public String getName(){
+//         return this.name;
+//     }
+
+//     public void setName(String name){
+//         this.name=name;
+//     }
+// }
+
+// public class MyMethod{
+//     public static void main(String[] args) {
+//         person st = new person();
+//         String bob = "Bob";
+//         st.setName(bob);
+//         // 字符串 "Bob" 赋值给了变量 bob。
+//         // 然后通过 st.setName(bob) 将这个值传递给了 st 对象的 name 属性。此时，st 对象的 name 字段是 "Bob"。
+//         System.out.println(st.getName());
+//         bob = "Alice";
+//         /* 
+//          * 在这里，bob 是一个局部变量，它存储的是一个字符串值。
+//          * 在 Java 中，字符串是不可变的，因此当你改变 bob 的值时，它只是把 "Alice" 赋给了 bob，并没有修改 st 对象的 name 字段。
+//          */
+//         System.out.println(st.getName());
+//     }
+// }
+/* 
+ * 在 Java 中，String 和 String[] 都是引用类型，存储的是对象的引用。但是，String 类型的对象是不可变的，
+ * 也就是说，一旦创建了一个 String 对象，就无法再修改它的值，任何对 String 对象的修改都会创建一个新的对象。
+ * 而 String[] 类型的对象是可变的，也就是说，可以修改数组中的元素值。
+
+   当我们将一个 String[] 类型的变量传递给一个方法时，实际上传递的是该变量所引用的数组对象在内存中的地址。
+   因此，当我们在方法中修改数组中的元素值时，对数组进行的修改会影响到原始数组，在方法返回后也能保留。
+   而 String 类型因为不可变，修改即创建新的对象也就有了新的地址，所以方法中引用的地址的值没有改变，输出的结果也就没有改变
+ */
+
+
+//  给Person类增加getAge/setAge方法：
+
+public class MyMethod {
+    public static void main(String[] args) {
+        Person ming = new Person();
+        ming.setName("小明");
+        ming.setAge(12);
+        System.out.println("姓名："+ming.getName()+"\n"+"年龄："+ming.getAge());
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public void setAge(int age){
+        this.age=age;
+    }
+}
