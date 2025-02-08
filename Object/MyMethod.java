@@ -175,20 +175,20 @@
 //     }
 // }
 
-class Group{
-    private String[] names;
-    public void setNames(String[] names){ // 完全可以把可变参数变为String[]类型 
-        this.names=names;
-    }
-}
+// class Group{
+//     private String[] names;
+//     public void setNames(String[] names){ // 完全可以把可变参数变为String[]类型 
+//         this.names=names;
+//     }
+// }
 
-public class MyMethod{
-    public static void main(String []args){
-        Group g = new Group();
-        // 调用方需要自己构建String[],比较麻烦
-        g.setNames(new String[]{"djlsa","hjkasd"}); // 传入一个String
-        // 调用方也可以传入null
-        g.setNames(null);
-        // 可变参数可以无法保证传入null，因为传入0个参数时，接收到的实际值是一个空数组而不是null。
-    }
-}
+// public class MyMethod{
+//     public static void main(String []args){
+//         Group g = new Group();
+//         // 调用方需要自己构建String[],比较麻烦
+//         g.setNames(new String[]{"djlsa","hjkasd"}); // 传入一个String
+//         // 调用方也可以传入null
+//         g.setNames(null);
+//         // 可变参数可以无法保证传入null，因为传入0个参数时，接收到的实际值是一个空数组而不是null。
+//     }
+// }
