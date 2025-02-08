@@ -1,5 +1,5 @@
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class Judge {
     public static void main(String []args){
@@ -98,24 +98,24 @@ public class Judge {
           非常肥胖：高于32
         */
 
-         Scanner x = new Scanner(System.in);
-         System.out.print("输入你的身高");
-         double a = x.nextDouble();
-         System.out.print("输入你的体重");
-         double b = x.nextDouble();
-         double c = b/(a*a);
-         System.out.printf("%.1f\n",c);
-         if(c<18.5){
-            System.out.printf("体重过轻");
-         }else if (c>=18.5 && c<=25){
-            System.out.printf("正常");
-         }else if (c>=25 && c<=28){
-            System.out.printf("过重");
-         }else if (c>=28 && c<=32){
-            System.out.printf("肥胖");
-         }else{
-            System.out.printf("过于肥胖，注意健康");
-         }
+         // Scanner x = new Scanner(System.in);
+         // System.out.print("输入你的身高");
+         // double a = x.nextDouble();
+         // System.out.print("输入你的体重");
+         // double b = x.nextDouble();
+         // double c = b/(a*a);
+         // System.out.printf("%.1f\n",c);
+         // if(c<18.5){
+         //    System.out.printf("体重过轻");
+         // }else if (c>=18.5 && c<=25){
+         //    System.out.printf("正常");
+         // }else if (c>=25 && c<=28){
+         //    System.out.printf("过重");
+         // }else if (c>=28 && c<=32){
+         //    System.out.printf("肥胖");
+         // }else{
+         //    System.out.printf("过于肥胖，注意健康");
+         // }
 
     }
 }
