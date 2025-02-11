@@ -40,7 +40,7 @@
 
 // 给Person增加重载方法setName(String, String)：
 
-public class Main {
+public class Reload {
     public static void main(String[] args) {
         Person ming = new Person();
         Person hong = new Person();
