@@ -130,23 +130,23 @@
 
 // 在java中，任何class的构造方法，第一行语句必须是调用父类的构造方法。如果没有明确地调用父类的构造方法，编译器会帮我们自动加一句
 // super();,所以,Student类的构造方法实际上是这样：
-class Person{
-    protected String name;
-    protected int age;
+// class Person{
+//     protected String name;
+//     protected int age;
 
-    public Person(String name,int age){
-        this.name=name;
-        this.age=age;
-    }
-}
+//     public Person(String name,int age){
+//         this.name=name;
+//         this.age=age;
+//     }
+// }
 
-class Student extends Person{
-        protected int score;
-        public Student(String name,int age,int score){
-            super(name,age); // 调用父类的构造方法
-            this.score=score;
-        }
-}
+// class Student extends Person{
+//         protected int score;
+//         public Student(String name,int age,int score){
+//             super(name,age); // 调用父类的构造方法
+//             this.score=score;
+//         }
+// }
 // 如果父类没有明确的构造方法，子类就必须显示调用super()并给出参数以便让编译器定位到父类的一个合适的构造方法。
 // 子类不会继承父类的构造方法。子类默认的构造方法是编译器自动生成的，不是继承的。
 
