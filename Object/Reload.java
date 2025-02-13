@@ -67,7 +67,11 @@ class Person {
         this.name=name+name1;
     }
 
+<<<<<<< HEAD
 }
 // 方法重载是指多个方法的方法名相同，但各自的参数不同；
 // 重载方法应该完成类似的功能，参考String的indexOf()；
 // 重载方法返回值类型应该相同。
+=======
+}
+>>>>>>> origin/main
