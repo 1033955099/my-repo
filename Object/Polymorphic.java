@@ -125,72 +125,126 @@
 //     }
 // }
 
-public class Polymorphic {
-    public static void main(String[] args) {
-        // 给一个有普通收入、工资收入和享受国务院特殊津贴的小伙伴算税:
-        // 创建不同收入对象的数组
-        Income[] incomes = new Income[] {
-            new Income(3000), // 普通收入
-            new Salary(7500), // 工资收入
-            new StateCouncilSpecialAllowance(15000) // 国务院特殊津贴收入
-        };
-        System.out.println(totalTax(incomes)); // 打印总稿费
-        // totalTax(incomes)是一个方法，用来计算所有收入的总稿费，并输出到控制台。
-    }
+// public class Polymorphic {
+//     public static void main(String[] args) {
+//         // 给一个有普通收入、工资收入和享受国务院特殊津贴的小伙伴算税:
+//         // 创建不同收入对象的数组
+//         Income[] incomes = new Income[] {
+//             new Income(3000), // 普通收入
+//             new Salary(7500), // 工资收入
+//             new StateCouncilSpecialAllowance(15000) // 国务院特殊津贴收入
+//         };
+//         System.out.println(totalTax(incomes)); // 打印总稿费
+//         // totalTax(incomes)是一个方法，用来计算所有收入的总稿费，并输出到控制台。
+//     }
 
-    // totalTax方法接受一个可变参数Income...income,这意味着它可以接收多个Income类型的对象。
-    public static double totalTax(Income... incomes) {
-        double total = 0;
-        // 在方法中，遍历每个收入对象（for (Income income : incomes)），并调用每个对象的 getTax() 方法来计算税费。
-        for (Income income: incomes) {
-            total = total + income.getTax(); // 逐个累加每个收入的税费
-        }
-        // 每个收入的稿费会加到total变量上，最后返回计算出总搞费
-        return total;
-    }
-}
+//     // totalTax方法接受一个可变参数Income...income,这意味着它可以接收多个Income类型的对象。
+//     public static double totalTax(Income... incomes) {
+//         double total = 0;
+//         // 在方法中，遍历每个收入对象（for (Income income : incomes)），并调用每个对象的 getTax() 方法来计算税费。
+//         for (Income income: incomes) {
+//             total = total + income.getTax(); // 逐个累加每个收入的税费
+//         }
+//         // 每个收入的稿费会加到total变量上，最后返回计算出总搞费
+//         return total;
+//     }
+// }
 
-// Income是一个父类，它表示一种通用的收入类型。
-class Income{
-    protected double income; //income字段存储收入金额
+// // Income是一个父类，它表示一种通用的收入类型。
+// class Income{
+//     protected double income; //income字段存储收入金额
 
-    public Income(double income){ // 这是构造法，用来初始化收入金额
-        this.income = income;
-    }
+//     public Income(double income){ // 这是构造法，用来初始化收入金额
+//         this.income = income;
+//     }
 
-    public double getTax(){ // 这是一个方法，计算并且税费
-        return income * 0.1; //税率10％
-    }
-}
-// Salary是继承自Income的子类，专门处理工资收入。
-class Salary extends Income{
-    public Salary(double income){ // 调用父类的构造方法来初始化收入金额
-        super(income);
-    }
+//     public double getTax(){ // 这是一个方法，计算并且税费
+//         return income * 0.1; //税率10％
+//     }
+// }
+// // Salary是继承自Income的子类，专门处理工资收入。
+// class Salary extends Income{
+//     public Salary(double income){ // 调用父类的构造方法来初始化收入金额
+//         super(income);
+//     }
 
-    @Override
-    public double getTax(){ // 重写父类的getTax()方法，定义工资收入的税费计算规则
-        if(income <= 5000){
-            return 0; // 如果工资不超过5000就返回0
-        }
-        return (income - 5000) * 0.2; // 如果工资超过5000，就按20％的税率征税
-    }
-}
-// 国务院津贴收入
-// StateCouncilSpecialAllowance 也是继承自 Income 的子类，用来处理国务院特殊津贴收入。
-class StateCouncilSpecialAllowance extends Income{
-    public StateCouncilSpecialAllowance(double income){
-        super(income);
-    }
+//     @Override
+//     public double getTax(){ // 重写父类的getTax()方法，定义工资收入的税费计算规则
+//         if(income <= 5000){
+//             return 0; // 如果工资不超过5000就返回0
+//         }
+//         return (income - 5000) * 0.2; // 如果工资超过5000，就按20％的税率征税
+//     }
+// }
+// // 国务院津贴收入
+// // StateCouncilSpecialAllowance 也是继承自 Income 的子类，用来处理国务院特殊津贴收入。
+// class StateCouncilSpecialAllowance extends Income{
+//     public StateCouncilSpecialAllowance(double income){
+//         super(income);
+//     }
 
-    @Override
-    public double getTax(){ // 重写了父类的方法，规定国务院津贴是 免税 的，所以直接返回 0。
-        return 0;
-    }
-}  
+//     @Override
+//     public double getTax(){ // 重写了父类的方法，规定国务院津贴是 免税 的，所以直接返回 0。
+//         return 0;
+//     }
+// }  
 /* 
 第一个收入是普通收入，3000元，税率是 10%，所以税费是 3000 * 0.1 = 300 元。
 第二个收入是工资收入，7500元。根据 Salary 类的规则，5000元以内免税，超过部分 (7500 - 5000) 
 按 20% 征税，所以税费是 (7500 - 5000) * 0.2 = 500 元。
 第三个收入是国务院特殊津贴，15000元。根据 StateCouncilSpecialAllowance 类的规则，所有国务院津贴都是免税的，所以税费是 0 元。
 */
+
+// 多态具有非常强大的功能，就是允许添加更多类型的子类实现功能拓展，却不需要修改基于父类的代码。
+
+
+// 覆写Objact
+// 所有的class都继承于Objack,而Objack定义了几个重要方法：
+// toString():把instance输出为String;
+// equals():判断两个instance是否逻辑相等；
+// hashCode():计算一个instance的哈西值。
+
+// 在必要情况下，我们可以覆写objact的这几个方法：
+// class Person{
+//     protected String name;
+//     // 显示更有意义的字符串：
+//     @Override
+//     public String toString(){
+//         return "Person:name"+name;
+//     }
+
+
+//     // 比较是否相等：
+//     @Override
+//     public boolean equals(Object o){
+//         // 当且仅当O为Person类型：
+//         if(o instanceof Person) {
+//             Person p = (Person) o;
+//             // 并且name字段相同时，返回trun：
+//             return this.name.equals(p.name);
+//         }
+//         return false;
+//     }
+//     // 计算hash：
+//     @Override
+//     public int hashCode(){
+//         return this.name.hashCode();
+//     }
+// }
+
+
+// 调用super
+// 在子类的覆写方法中，如果要调用父类的被覆写的方法，可以通过super来调用。
+class Person{
+    protected String name;
+    public String hello(){
+        return "hello"+name;
+    }
+}
+class Student extends Person {
+    @Override
+    public String hello(){
+        // 调用父类的hello方法
+        return super.hello()+"!";
+    }
+}
