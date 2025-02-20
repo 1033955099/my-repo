@@ -235,16 +235,122 @@
 
 // 调用super
 // 在子类的覆写方法中，如果要调用父类的被覆写的方法，可以通过super来调用。
-class Person{
-    protected String name;
-    public String hello(){
-        return "hello"+name;
+// class Person{
+//     protected String name;
+//     public String hello(){
+//         return "hello"+name;
+//     }
+// }
+// class Student extends Person {
+//     @Override
+//     public String hello(){
+//         // 调用父类的hello方法
+//         return super.hello()+"!";
+//     }
+// }
+
+
+// final
+// 继承可以允许子类覆写父类的方法。如果一个父类不允许子类对它的某个方法进行覆写，可以把该方法标记为final。
+// 用final修饰的方法不能被Override
+// class Person {
+//     protected String name;
+//     public final String hello(){
+//         return "Hello,"+name;
+//     }
+// }
+
+// class Student extends  Person {
+//     @Override
+//     public String hello(){
+        
+//     }
+// }
+// 如果一个类不希望任何其他类继承自它，那么可以把这个类本身标记为final。用final修饰的类不能被继承:
+// final class Person {
+//     protected String name;
+// }
+
+// 用final修饰了父类，所以子类不能继承:
+// class Student extends Person {
+// }
+
+// 对于一个类的实例字段，同样可以y用final修饰。用final修饰的字段在初始化后不能修改。
+// class Person {
+//     public final String name = "Unamed";
+// }
+
+// 对final字段重新赋值会报错：
+// Person p = new Person();
+// p.name = "New Name";
+
+// 可以在构造方法中初始化final字段:
+// class Person {
+//     public String name;
+//     public Person(String name) {
+//         this.name = name;
+//     }
+// }
+// 这种方法更为常用，因为可以保证实例一旦创建，其final字段就不可修改。
+
+// 子类可以覆写父类的方法，覆写在子类中改变了父类方法的行为;
+// java的方法调用总是作用于运行期对象的实际类型，这种行为称为多态;
+
+// final 修饰符有多种作用:
+// final 修饰的方法可以阻止被覆写;
+// final 修饰的class可以阻止被继承;
+// final 修饰的field必须在创建对象时初始化，随后不可修改;
+
+// 给一个有工资收入和稿费收入的伙伴算税
+// 工资按照10％来收税，如果超过5000按照20％来收税
+
+// 先定义一个通用收入的类
+
+class Income {
+    private double income;
+    public Income(double income) {
+        this.income = income;
+    }
+    public double getIncome() {
+        return income;
+    }
+    public double getTax() {
+        return this.income * 0.1;
     }
 }
-class Student extends Person {
-    @Override
-    public String hello(){
-        // 调用父类的hello方法
-        return super.hello()+"!";
+
+class Salary extends Income {
+    public Salary(double income) {
+        super(income);
+    }
+    public double getTax() {
+        if(super.getIncome()<5000) {
+            return 0;
+        }
+        return (super.getIncome() - 5000) * 0.2;
+    }
+}
+
+class Royalties extends Income {
+    public Royalties(double income) {
+        super(income);
+    }
+    public double getTax() {
+        return 0;
+    }
+}
+
+public class Polymorphic {
+    public static void main(String[] args) {
+        Income[] incomes = new Income[]{new Salary(6000), new Royalties(500)};
+        System.out.println(totalTax(incomes));
+    }
+
+    public static double totalTax(Income... incomes) {
+        double total = 0;
+        for(Income income : incomes) {
+            total += income.getTax();
+        }
+        return total;
     }
 }
