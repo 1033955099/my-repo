@@ -54,3 +54,14 @@
 //     }
 // }
 
+/* 
+ 编写class的时候，编译器会自动帮我们做两个import动作：
+  默认自动import当前package的其他class；
+  默认自动import java.lang.*。 
+ */
+
+
+// java内建的package机制是为了避免class命名冲突；
+// jdk的核心类使用java.lang包，编译器h会自动导入；
+// jdk的其他常用类定义在Java.util.*，java.math.*,java.text.*,......;
+// 包名推荐使用倒置的域名，如org.apache.
